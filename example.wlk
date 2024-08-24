@@ -14,6 +14,7 @@ object pepita {
 	}
 }
 
+
 object alpiste {
 	method energiaQueAporta() {
 		return 20
@@ -41,3 +42,43 @@ object manzana {
 	}
 	
 }
+
+
+object pepon {
+	var energia = 30
+
+	method energia(_energia) {
+		energia = _energia	
+	}
+
+	method comer(comida) {
+		energia = energia + (comida.energiaQueAporta() / 2)
+	}
+
+	method volar(distancia) {
+		energia = energia - 20 - 2 * distancia
+	}
+}
+
+
+
+object roque {
+	var pajaroActual = pepita
+	var cantidadDeCenas = 0
+	method pajaro(pajaro){
+		pajaroActual = pajaro
+		cantidadDeCenas = 0
+	} 
+	
+	method alimentar(comida) {
+		 pajaroActual.comer(comida) 
+		 cantidadDeCenas = cantidadDeCenas + 1
+	}
+
+	method cenas() {
+		return cantidadDeCenas
+	}
+}
+
+/*Las pruebas las estoy ejecutando en wollok, ya que no pude configurar el vsc para ejecutarlo.
+intentare solucionarlo.*/
